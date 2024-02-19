@@ -3,12 +3,14 @@ name: 'C++ CI'
 on:
   push:
     branches:
-      - main
+      - master
+      - feature/github_actions
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
       - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
